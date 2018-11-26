@@ -9,20 +9,22 @@ var wordsList=[word1, word2, word3, word4,word5]
 var gameBoardtext = document.getElementById("blankWord");
 var currentWord=[]
 var wordPickerInt
-var success
+var success=0
 var wordString="testWord"
 var wordArray=[]
+var numberOfGuessesLeft=10
 
+/*
 function arrayifyWords(){
 for (i=0; i<wordString.length; i++){
     wordArray.push(wordString[i]);
 }
-console.log(wordArray)
-}
+//console.log(wordArray)
+}*/
 
 wordPickerInt=Math.floor(Math.random() * wordsList.length);
-console.log(wordPickerInt);
-console.log(wordsList[wordPickerInt]);
+//console.log(wordPickerInt);
+//console.log(wordsList[wordPickerInt]);
 
 currentWord=wordsList[wordPickerInt];
 
@@ -46,8 +48,9 @@ gameBoardtext.textContent=secretWord
     for (var i=0; i<currentWord.length; i++){
         //console.log(word1[i]);
         if (userInput===currentWord[i]){
-            secretWord[i]=currentWord[i]
+            secretWord[i]=currentWord[i];
             success++;
+            console.log(`success ${success}`)
                 if (success===currentWord.length){
                     alert("YOU DID IT!")
                 }
