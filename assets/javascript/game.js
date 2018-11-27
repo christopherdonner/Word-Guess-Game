@@ -22,12 +22,14 @@ var retriesRemaining=10
 //pick random word from wordsList array
 wordPickerInt=Math.floor(Math.random() * wordsList.length);
 currentWord=wordsList[wordPickerInt]; //set as currentWord
+console.log(currentWord)
 
 //blank out game board
 for (var j=0; j<currentWord.length; j++){
     secretWord.push("_");
     console.log(`secretWord:${secretWord}`)
 }
+
 //draw elements to html
 gameBoardtext.textContent=secretWord
 retriesValue.textContent=retriesRemaining
@@ -43,15 +45,20 @@ retriesValue.textContent=retriesRemaining
         if (userInput===currentWord[i]){
             secretWord[i]=currentWord[i];
             gameBoardtext.textContent=secretWord;
-            //success++;
+            success=1;
+            }
         }
+        if (success===0){retriesRemaining--;}
+    success=0;
 //check for win condition
         if (secretWord.toString()==currentWord.toString()) {
                     //gameBoardtext.textContent=secretWord;
                     alert("YOU DID IT!");
-                }
-        //else {retriesRemaining--;}   
-    }
+                    }
+           
+    
+    //if (success===FALSE){retriesRemaining--;}
+    
     gameBoardtext.textContent=secretWord;
     retriesValue.textContent=retriesRemaining;
 }
