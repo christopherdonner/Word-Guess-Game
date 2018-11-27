@@ -1,11 +1,16 @@
 var userInput
 var secretWord=[]
+var word0=["m","a","g","g","i","e"]
 var word1=["m","a","r","g","e"]
 var word2=["b","a","r","t"]
 var word3=["h","o","m","e","r"]
 var word4=["l","i","s","a"]
 var word5=["m","i","l","l","h","o","u","s","e"]
-var wordsList=[word1, word2, word3, word4,word5]
+var word6=["s","p","r","i","n","g","f","i","e","l","d"]
+var word7=["f","l","a","n","d","e","r","s"]
+var word8=["k","r","u","s","t","y"]
+var word9=["w","i","g","g","u","m"]
+var wordsList=[word0, word1, word2, word3, word4,word5,word6, word7, word8, word9]
 var gameBoardtext=document.getElementById("blankWord");
 var retriesValue=document.getElementById("retries");
 var currentWord
@@ -14,19 +19,18 @@ var success=0
 var retriesRemaining=10
 
 
-
+//pick random word from wordsList array
 wordPickerInt=Math.floor(Math.random() * wordsList.length);
+currentWord=wordsList[wordPickerInt]; //set as currentWord
 
-currentWord=wordsList[wordPickerInt];
-
+//blank out game board
 for (var j=0; j<currentWord.length; j++){
     secretWord.push("_");
     console.log(`secretWord:${secretWord}`)
 }
+//draw elements to html
 gameBoardtext.textContent=secretWord
 retriesValue.textContent=retriesRemaining
-console.log(retriesRemaining)
-//retriesValue.textContent=retriesRemaining
 
 //capture keypress
       document.onkeyup = function(event) 
@@ -43,17 +47,11 @@ console.log(retriesRemaining)
         }
 //check for win condition
         if (secretWord.toString()==currentWord.toString()) {
-                    gameBoardtext.textContent=secretWord;
+                    //gameBoardtext.textContent=secretWord;
                     alert("YOU DID IT!");
                 }
-            
+        //else {retriesRemaining--;}   
     }
-        
-
-    
-
-
-    
     gameBoardtext.textContent=secretWord;
     retriesValue.textContent=retriesRemaining;
 }

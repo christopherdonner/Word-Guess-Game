@@ -1,18 +1,29 @@
+header {
+    padding: 10px;
+}
+
+body {
+    background-color: black;
+}
 p{
     font-size: 42px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
-    color: white;
+    color: yellow;
 }
 
 h1, h2{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
-    color: white;
+    color: yellow;
 }
 
 h1{
     font-size: 62px;
+}
+
+h3{
+    font-size: 24px;
 }
 
 #gameBoard {
