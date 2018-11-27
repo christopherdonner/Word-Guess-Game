@@ -13,10 +13,12 @@ var word9=["w","i","g","g","u","m"]
 var wordsList=[word0, word1, word2, word3, word4,word5,word6, word7, word8, word9]
 var gameBoardtext=document.getElementById("blankWord");
 var retriesValue=document.getElementById("retries");
+var alreadyTriedText=document.getElementById("alreadyTried");
 var currentWord
 var wordPickerInt
 var success=0
 var retriesRemaining=10
+var alreadyTried=[]
 
 
 //pick random word from wordsList array
@@ -39,6 +41,7 @@ retriesValue.textContent=retriesRemaining
         {
         var userInput = event.key.toLowerCase(); // Captures the key press, converts it to lowercase, and saves it to a variable.
         console.log(userInput);
+        alreadyTried.push(userInput);
 
 //check user input value against currentWord         
     for (var i=0; i<currentWord.length; i++){
@@ -56,9 +59,12 @@ retriesValue.textContent=retriesRemaining
                     alert("YOU DID IT!");
                     }
            
-    
+        if (retriesRemaining===0){
+            alert("YOU LOSE!!");
+        }
     //if (success===FALSE){retriesRemaining--;}
     
     gameBoardtext.textContent=secretWord;
     retriesValue.textContent=retriesRemaining;
+    alreadyTriedText.textContent=alreadyTried;
 }
