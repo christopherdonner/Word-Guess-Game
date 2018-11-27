@@ -6,64 +6,54 @@ var word3=["h","o","m","e","r"]
 var word4=["l","i","s","a"]
 var word5=["m","i","l","l","h","o","u","s","e"]
 var wordsList=[word1, word2, word3, word4,word5]
-var gameBoardtext = document.getElementById("blankWord");
-var currentWord=[]
+var gameBoardtext=document.getElementById("blankWord");
+var retriesValue=document.getElementById("retries");
+var currentWord
 var wordPickerInt
 var success=0
-var wordString="testWord"
-var wordArray=[]
-var numberOfGuessesLeft=10
+var retriesRemaining=10
 
-/*
-function arrayifyWords(){
-for (i=0; i<wordString.length; i++){
-    wordArray.push(wordString[i]);
-}
-//console.log(wordArray)
-}*/
+
 
 wordPickerInt=Math.floor(Math.random() * wordsList.length);
-//console.log(wordPickerInt);
-//console.log(wordsList[wordPickerInt]);
 
 currentWord=wordsList[wordPickerInt];
 
-
 for (var j=0; j<currentWord.length; j++){
-    secretWord.push("_")
+    secretWord.push("_");
+    console.log(`secretWord:${secretWord}`)
 }
 gameBoardtext.textContent=secretWord
+retriesValue.textContent=retriesRemaining
+console.log(retriesRemaining)
+//retriesValue.textContent=retriesRemaining
 
-//function captureInput(){
+//capture keypress
       document.onkeyup = function(event) 
         {
         var userInput = event.key.toLowerCase(); // Captures the key press, converts it to lowercase, and saves it to a variable.
         console.log(userInput);
-        //}
-    
 
-//function checkValue(){
-    //console.log(`word1.length: ${word1.length}`);
-    //console.log(word1[0]);
+//check user input value against currentWord         
     for (var i=0; i<currentWord.length; i++){
-        //console.log(word1[i]);
         if (userInput===currentWord[i]){
             secretWord[i]=currentWord[i];
-            success++;
-            console.log(`success ${success}`)
-                if (success===currentWord.length){
-                    alert("YOU DID IT!")
-                }
-            }
-            //alert(`${word1[i]} is correct!`)
+            gameBoardtext.textContent=secretWord;
+            //success++;
         }
-    
-
-
-    
-    gameBoardtext.textContent=secretWord
+//check for win condition
+        if (secretWord.toString()==currentWord.toString()) {
+                    gameBoardtext.textContent=secretWord;
+                    alert("YOU DID IT!");
+                }
+            
     }
+        
 
-/*captureInput();
-checkValue();
-}*/
+    
+
+
+    
+    gameBoardtext.textContent=secretWord;
+    retriesValue.textContent=retriesRemaining;
+}
