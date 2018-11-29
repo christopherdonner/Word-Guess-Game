@@ -23,16 +23,37 @@
 <body background="assets/images/simpsons.gif">
     <div class="container" id="gameBoard">
         <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-4">
+                <!--<div class="col-md-2"></div>-->
+                <div class="col-md-12">
                         
                         <span class="badge badge-dark"> <p id="blankWord"></p> </span>
-                      
                     <div class="row">
-                        <div class="col-sm-4"><div class="badge badge-dark"><h3><p>tries: <span id="retries"></div></span></p></h3></div>
-                    </div>
-                <div class="row">
-                    <div class="col-sm-4"><h3><p>Already tried: <span id="alreadyTried"></span></p></h3></div>
+                        <div class="col-md-2">
+                            <!--<div class="badge badge-dark">-->
+                            <div class="card">
+                                <h3 class="card-header">tries: </h3>
+                                    <div class="card-body">
+                                        <span id="retries"></span>
+                                    </div>
+                            </div>
+                        </div>
+                    
+                <!--<div class="row">-->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <h3 class="card-header">Already tried:</h3>
+                                <div class="card-body">
+                                    <span id="alreadyTried">
+                                    </span>
+                                </div>
+                                    
+                                
+                            
+                            </div>
+                        </div>
+                    
+                    
+                    <!--</div>-->
                 </div>
         </div>
         </div>

@@ -20,6 +20,11 @@ var success=0
 var retriesRemaining=10
 var alreadyTried=[]
 
+function drawBoard(){
+    gameBoardtext.textContent=secretWord
+retriesValue.textContent=retriesRemaining
+}
+
 function pickWord(){
     //pick random word from wordsList array
     wordPickerInt=Math.floor(Math.random() * wordsList.length);
@@ -46,14 +51,11 @@ function resetGame(){
 retriesValue.textContent=retriesRemaining
 }
 
-
-
 pickWord();
 blankBoard();
 
 //draw elements to html
-gameBoardtext.textContent=secretWord
-retriesValue.textContent=retriesRemaining
+drawBoard();
 
 //capture keypress
       document.onkeyup = function(event) 
@@ -74,7 +76,6 @@ retriesValue.textContent=retriesRemaining
     success=0;
 //check for win condition
         if (secretWord.toString()==currentWord.toString()) {
-                    //gameBoardtext.textContent=secretWord;
                     alert("YOU DID IT!");
                     resetGame();
                     }
