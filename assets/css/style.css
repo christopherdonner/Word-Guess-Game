@@ -1,3 +1,7 @@
+* {
+    font-family: 'Rock Salt', cursive;
+}
+
 header {
     padding: 10px;
 }
@@ -8,13 +12,13 @@ body {
 }
 p{
     font-size: 42px;
-    font-family: 'Courier New', Courier, monospace;
+    
     font-weight: bolder;
     color: yellow;
 }
 
 h1, h2{
-    font-family: 'Courier New', Courier, monospace;
+    
     font-weight: bolder;
     color: yellow;
 }

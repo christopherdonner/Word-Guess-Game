@@ -19,6 +19,7 @@ var wordPickerInt
 var success=0
 var retriesRemaining=10
 var alreadyTried=[]
+var isDuplicate=0
 
 function drawBoard(){
     gameBoardtext.textContent=secretWord
@@ -39,6 +40,14 @@ function pickWord(){
         console.log(`secretWord:${secretWord}`)
         }
     }
+
+function duplicateCheck(){
+    for (var i=0; i<alreadyTried.length; i++){
+        if (userInput===alreadyTried[i]){
+            isDuplicate=1;
+        }
+    }
+}
 
 function resetGame(){
     secretWord=[];
@@ -66,7 +75,7 @@ drawBoard();
 
 //check user input value against currentWord         
     for (var i=0; i<currentWord.length; i++){
-        if (userInput===currentWord[i]){
+        if (userInput===currentWord[i]) {
             secretWord[i]=currentWord[i];
             gameBoardtext.textContent=secretWord;
             success=1;
